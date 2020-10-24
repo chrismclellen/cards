@@ -40,6 +40,7 @@ export class AppComponent implements AfterViewInit {
 
 
   reshuffle() {
+    if (this.remainingCards.length == 0) { return; }
     let length = this.drawnCards.length;
     for( let i = 0; i < length; i++) {
       let card = this.drawnCards.pop();
@@ -51,6 +52,8 @@ export class AppComponent implements AfterViewInit {
   }
 
   draw() {
+    if (this.remainingCards.length == 0) { return; }
+
     let card = this.remainingCards.shift();
     this.drawnCards.push(card);
     this.table1.renderRows();
@@ -58,6 +61,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   drawNewHand() {
+    if (this.remainingCards.length == 0) { return; }
     let length = this.drawnCards.length;
     for( let i = 0; i < length; i++) {
       let card1 = this.drawnCards.shift();
